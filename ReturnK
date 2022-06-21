@@ -1,0 +1,33 @@
+import java.util.Scanner;
+ class ReturnK {
+
+    public static int compare(int[] num, int check)
+    {
+        Boolean val=false;
+        for(int i = 0; i<num.length;i++)
+        {
+            for(int j = 1+i; j<num.length; j++)
+            {
+                int res= num[i]+num[j];
+                if(res==check){
+                    System.out.println("Numbers that are adding upto the Input:"+num[i]+"+"+num[j]+"="+check);
+                    val=true;
+                }
+            }
+        }
+        if(val==false){
+            System.out.println("NO COMBINATION FOUND");
+        }
+        return 0;
+    }
+   
+    public static void main(String args[]){
+        int[] new_Array = new int[]{10,5,8,45,21,36,4,7,2,9,1,6};
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Enter a Number: ");
+        int take = sc.nextInt();
+        ReturnK m = new ReturnK();
+        m.compare(new_Array,take); 
+    } 
+}
+

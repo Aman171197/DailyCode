@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class Multiply{
+    void calculation(int[] got_Array){
+
+        int[] lft=new int[got_Array.length];
+        int[] rt=new int[got_Array.length];
+        int[] final_Arr=new int[got_Array.length];
+        lft[0]=1;
+        rt[got_Array.length-1]=1;
+    
+        for(int i=1;i<got_Array.length;i++){
+            lft[i] =got_Array[i-1]*lft[i-1]; 
+          
+        }
+        for(int j=got_Array.length-2;j>=0;j--){
+            rt[j] =got_Array[j+1]*rt[j+1];  
+        
+        }
+        System.out.println("Output: ");
+        for(int k=0;k<got_Array.length;k++){
+         final_Arr[k]=lft[k]*rt[k];
+         System.out.print(final_Arr[k]+",");
+        }
+    }
+}
+public class ProductExceptSame{
+    public static void main(String argsp[]){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Size of Array!");
+        int size = sc.nextInt();
+        int[] data=new int[size];
+        System.out.print("Enter Elements of Array: ");
+        for(int i =0;i<size;i++){
+            data[i] = sc.nextInt();
+        }
+        Multiply data_Array = new Multiply();
+        data_Array.calculation(data);      
+    }
+}
